@@ -4,13 +4,29 @@ extends KinematicBody
 onready var player = $"../Player"
 onready var enemy_ray_cast = $EnemyRayCast
 
-
 var health = 100
+
+var speed = 6
+var jump = 6
+var gravity = 16
+
+var ground_acceleration = 8
+var air_acceleration = 2
+var acceleration = ground_acceleration
+
+var slide_prevention = 10
+
+var direction = Vector3()
+var velocity = Vector3()
+var movement = Vector3()
+var gravity_vector = Vector3()
 
 var is_stalking_player = false
 var is_attacking_player = false
 var is_runnig_away_from_player = false
 var is_climbing = false
+
+var is_on_ground = true
 
 # Name of the observed object for debugging purposes
 var observed_object = "" 
@@ -31,6 +47,10 @@ func _process(delta):
 			print("Enemy is looking at: " + observed_object + ".")
 
 
+func _physics_process(delta):
+	move_forward(delta)
+
+
 func stalk_player():
 	pass
 	
@@ -49,3 +69,8 @@ func look_at_player():
 	look_at(target_pos, Vector3(0, 1, 0))
 	rotation.x = 0
 	rotation.z = 0
+
+
+func move_forward(delta):
+	var new_pos = transform.origin + transform.basis.z * speed * delta * (-1)
+	transform.origin = new_pos
