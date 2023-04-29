@@ -39,6 +39,75 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -418, 0
 [node name="Building4" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -418, 0, 348 )
 
+[node name="Building5" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -200, 0, 300 )
+
+[node name="Building6" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -114, 0, 300 )
+
+[node name="Building7" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28, 0, 300 )
+
+[node name="Building8" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 58, 0, 300 )
+
+[node name="Building9" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -334.74, 0, 94.5822 )
+
+[node name="Building10" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -216.74, 0, 94.5822 )
+
+[node name="Building11" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -187.5, 0, 376.045 )
+
+[node name="Building12" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -308.5, 0, 376.045 )
+
+[node name="Building13" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -63.5, 0, 394.045 )
+
+[node name="Building14" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 48.5, 0, 394.045 )
+
+[node name="Building15" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -72.5, 0, -110 )
+
+[node name="Building16" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 48.5, 0, -110 )
+
+[node name="Building17" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -196.5, 0, -110 )
+
+[node name="Building18" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -338.095, 0, -110 )
+
+[node name="Building19" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 169.73, 0, -115.264 )
+
+[node name="Building20" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 141, 0, 300 )
+
+[node name="Building21" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 212, 0, 300 )
+
+[node name="Building22" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 239, 0, -31.2298 )
+
+[node name="Building23" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -94.74, 0, 94.5822 )
+
+[node name="Building24" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14.26, 0, 94.5822 )
+
+[node name="Building25" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 320.963, 0, 386.056 )
+
+[node name="Building26" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 199.963, 0, 386.056 )
+
+[node name="Building27" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -299, 0, 300 )
+
 [node name="WalkableGround" type="Node" parent="."]
 
 [node name="GridMap" type="GridMap" parent="WalkableGround"]
