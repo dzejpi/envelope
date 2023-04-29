@@ -13,7 +13,7 @@ onready var player_camera = $PlayerHead/PlayerCamera
 onready var player_ui = $UI/PlayerUI
 onready var typewriter_dialog = $UI/PlayerUI/TypewriterDialog
 onready var player_task_label = $UI/PlayerUI/PlayerTaskLabel
-
+onready var player_prompt_label = $UI/PlayerUI/PlayerPromptLabel
 
 var is_game_over = false
 
@@ -53,6 +53,7 @@ func _ready():
 	current_fov = basic_fov
 	pause_scene.is_game_paused = false
 	pause_scene.hide()
+	player_prompt_label.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	update_current_task(current_player_task)
 	check_game_end()
@@ -73,6 +74,9 @@ func _input(event):
 	if Input.is_action_just_pressed("game_pause"):
 		if !is_game_over:
 			handle_pause_change()
+			
+	if Input.is_action_just_pressed("game_click"):
+			process_action_on_object(observed_object, ray.get_collider())
 
 
 func _process(_delta):
@@ -82,12 +86,16 @@ func _process(_delta):
 	# If player is looking at something
 	if ray.is_colliding():
 		var collision_object = ray.get_collider().name
+		var watched_object = ray.get_collider()
 		
 		if collision_object != observed_object:
 			observed_object = collision_object
 			print("Player is looking at: " + observed_object + ".")
+			process_object_prompt(observed_object, watched_object)
 	else:
 		var collision_object = "nothing"
+		player_prompt_label.text = ""
+		player_prompt_label.hide()
 		if collision_object != observed_object:
 			observed_object = collision_object
 			print("Player is looking at: nothing.")
@@ -205,3 +213,24 @@ func change_fov(player_current_fov):
 func update_current_task(task):
 	current_player_task = task
 	player_task_label.text = current_player_task
+
+
+func process_object_prompt(observed_object, raycast_object):
+	match(observed_object):
+		"Box":
+			if !raycast_object.is_filled:
+				player_prompt_label.show()
+				player_prompt_label.text = "Fill the box"
+			else:
+				player_prompt_label.hide()
+				player_prompt_label.text = ""
+		"Building":
+			player_prompt_label.hide()
+			player_prompt_label.text = ""
+
+
+func process_action_on_object(observed_object, raycast_object):
+	match(observed_object):
+		"Box":
+			if !raycast_object.is_filled:
+				raycast_object.fill_box()

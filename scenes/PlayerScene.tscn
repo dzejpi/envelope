@@ -123,3 +123,12 @@ custom_fonts/font = ExtResource( 5 )
 custom_styles/normal = SubResource( 5 )
 text = "Task here."
 valign = 1
+
+[node name="PlayerPromptLabel" type="Label" parent="UI/PlayerUI"]
+margin_left = 683.0
+margin_top = 384.0
+margin_right = 708.0
+margin_bottom = 448.0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 5 )
+valign = 1
