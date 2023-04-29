@@ -35,7 +35,6 @@ func _process(delta):
 	else:
 		visible = false
 
-	print("Dialog switch timeout current:" + str(dialog_switch_timeout_current))
 
 func start_dialog(dialog_array, delta):
 	dialog_text = dialog_array
