@@ -117,11 +117,11 @@ visible = false
 [node name="PlayerTaskLabel" type="Label" parent="UI/PlayerUI"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 269.0
+margin_right = 110.0
 margin_bottom = 96.0
 custom_fonts/font = ExtResource( 5 )
 custom_styles/normal = SubResource( 5 )
-text = "Task here."
+text = "Task."
 valign = 1
 
 [node name="PlayerPromptLabel" type="Label" parent="UI/PlayerUI"]
