@@ -12,6 +12,8 @@ onready var player_camera = $PlayerHead/PlayerCamera
 # UI
 onready var player_ui = $UI/PlayerUI
 onready var typewriter_dialog = $UI/PlayerUI/TypewriterDialog
+onready var player_task_label = $UI/PlayerUI/PlayerTaskLabel
+
 
 var is_game_over = false
 
@@ -35,6 +37,9 @@ var velocity = Vector3()
 var movement = Vector3()
 var gravity_vector = Vector3()
 
+var player_health = 100
+var current_player_task = "Deliver mail to the building 810."
+
 var is_on_ground = true
 var is_paused = false
 
@@ -49,6 +54,7 @@ func _ready():
 	pause_scene.is_game_paused = false
 	pause_scene.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	update_current_task(current_player_task)
 	check_game_end()
 
 
@@ -163,6 +169,9 @@ func handle_pause_change():
 
 
 func check_game_end():
+	if player_health <= 0:
+		is_game_over = true
+	
 	if is_game_over:
 		game_over_scene.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -191,3 +200,8 @@ func decrease_fov():
 
 func change_fov(player_current_fov):
 	player_camera.fov = player_current_fov
+
+
+func update_current_task(task):
+	current_player_task = task
+	player_task_label.text = current_player_task

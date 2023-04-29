@@ -114,4 +114,4 @@ margin_top = 32.0
 margin_right = 618.0
 margin_bottom = 96.0
 custom_fonts/font = ExtResource( 5 )
-text = "Deliver mail to the building 809."
+text = "Task here."
