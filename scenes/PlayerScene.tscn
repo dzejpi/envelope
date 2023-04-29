@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PauseScene.tscn" type="PackedScene" id=2]
@@ -68,6 +68,11 @@ tracks/1/keys = {
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.4
 
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.341176, 0.341176, 0.341176, 0.4 )
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
 [node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 1 )
@@ -111,7 +116,9 @@ visible = false
 [node name="PlayerTaskLabel" type="Label" parent="UI/PlayerUI"]
 margin_left = 32.0
 margin_top = 32.0
-margin_right = 618.0
+margin_right = 269.0
 margin_bottom = 96.0
 custom_fonts/font = ExtResource( 5 )
+custom_styles/normal = SubResource( 5 )
 text = "Task here."
+valign = 1
