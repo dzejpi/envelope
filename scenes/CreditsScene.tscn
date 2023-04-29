@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_disabled.png" type="Texture" id=1]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_focused.png" type="Texture" id=2]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_pressed.png" type="Texture" id=5]
+[ext_resource path="res://scripts/BackToMenuButton.gd" type="Script" id=6]
+[ext_resource path="res://scenes/TransitionOverlay.tscn" type="PackedScene" id=7]
+
+[node name="CreditsScene" type="Node2D"]
+
+[node name="CreditsButton" type="Node2D" parent="."]
+
+[node name="BackToMenuButton" type="TextureButton" parent="CreditsButton"]
+margin_left = 512.0
+margin_top = 592.0
+margin_right = 768.0
+margin_bottom = 656.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 1 )
+texture_focused = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameLabel" type="Label" parent="CreditsButton/BackToMenuButton"]
+margin_right = 256.0
+margin_bottom = 64.0
+text = "Back To Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsTextLabel" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 1216.0
+margin_bottom = 528.0
+text = "Credits text here."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BackgroundSprite" type="Sprite" parent="Background"]
+
+[node name="TransitionOverlay" parent="." instance=ExtResource( 7 )]
+
+[connection signal="pressed" from="CreditsButton/BackToMenuButton" to="CreditsButton/BackToMenuButton" method="_on_BackToMenuButton_pressed"]

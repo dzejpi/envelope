@@ -1,0 +1,135 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_pressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_disabled.png" type="Texture" id=3]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/visual/ui/main_menu/menu_btn_focused.png" type="Texture" id=5]
+[ext_resource path="res://scripts/SoundButton.gd" type="Script" id=6]
+[ext_resource path="res://scripts/QuitGameButton.gd" type="Script" id=7]
+[ext_resource path="res://scripts/NewGameButton.gd" type="Script" id=8]
+[ext_resource path="res://scripts/CreditsButton.gd" type="Script" id=9]
+[ext_resource path="res://scripts/MusicButton.gd" type="Script" id=10]
+[ext_resource path="res://scenes/TransitionOverlay.tscn" type="PackedScene" id=11]
+
+[node name="MainMenuScene" type="Node2D"]
+
+[node name="MenuButtons" type="Node2D" parent="."]
+
+[node name="NewGameButton" type="TextureButton" parent="MenuButtons"]
+margin_right = 256.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameLabel" type="Label" parent="MenuButtons/NewGameButton"]
+margin_right = 256.0
+margin_bottom = 64.0
+text = "New Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicButton" type="TextureButton" parent="MenuButtons"]
+margin_top = 96.0
+margin_right = 256.0
+margin_bottom = 128.0
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicLabel" type="Label" parent="MenuButtons/MusicButton"]
+margin_right = 256.0
+margin_bottom = 64.0
+text = "Music: on"
+align = 1
+valign = 1
+
+[node name="SoundButton" type="TextureButton" parent="MenuButtons"]
+margin_top = 192.0
+margin_right = 256.0
+margin_bottom = 192.0
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundLabel" type="Label" parent="MenuButtons/SoundButton"]
+margin_right = 256.0
+margin_bottom = 64.0
+text = "Sound: on"
+align = 1
+valign = 1
+
+[node name="CreditsButton" type="TextureButton" parent="MenuButtons"]
+margin_top = 288.0
+margin_right = 256.0
+margin_bottom = 256.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsLabel" type="Label" parent="MenuButtons/CreditsButton"]
+margin_right = 256.0
+margin_bottom = 64.0
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="QuitGameButton" type="TextureButton" parent="MenuButtons"]
+margin_top = 384.0
+margin_right = 256.0
+margin_bottom = 320.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 7 )
+
+[node name="QuitGameLabel" type="Label" parent="MenuButtons/QuitGameButton"]
+margin_right = 256.0
+margin_bottom = 64.0
+text = "Quit Game"
+align = 1
+valign = 1
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BackgroundSprite" type="Sprite" parent="Background"]
+
+[node name="TransitionOverlay" parent="." instance=ExtResource( 11 )]
+
+[connection signal="pressed" from="MenuButtons/NewGameButton" to="MenuButtons/NewGameButton" method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="MenuButtons/MusicButton" to="MenuButtons/MusicButton" method="_on_MusicButton_pressed"]
+[connection signal="pressed" from="MenuButtons/SoundButton" to="MenuButtons/SoundButton" method="_on_SoundButton_pressed"]
+[connection signal="pressed" from="MenuButtons/CreditsButton" to="MenuButtons/CreditsButton" method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="MenuButtons/QuitGameButton" to="MenuButtons/QuitGameButton" method="_on_QuitGameButton_pressed"]
