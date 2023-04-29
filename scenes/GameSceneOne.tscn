@@ -30,6 +30,15 @@ script = ExtResource( 3 )
 [node name="Building" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -400, 0, 112 )
 
+[node name="Building2" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -400, 0, -9 )
+
+[node name="Building3" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -418, 0, 236 )
+
+[node name="Building4" parent="Buildings" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -418, 0, 348 )
+
 [node name="WalkableGround" type="Node" parent="."]
 
 [node name="GridMap" type="GridMap" parent="WalkableGround"]
