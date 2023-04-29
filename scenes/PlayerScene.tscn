@@ -82,6 +82,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
 
 [node name="PlayerCamera" type="Camera" parent="PlayerHead"]
 fov = 90.0
+far = 500.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerHead/PlayerCamera"]
 "anims/Head Bob" = SubResource( 2 )
