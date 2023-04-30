@@ -36,6 +36,15 @@ var is_eighth_task_complete = false
 var is_ninth_task_complete = false
 var is_tenth_task_complete = false
 
+var has_creature_howled = false
+var howling_timeout = 15
+
+var initial_attack_timeout = 20
+var has_creature_started_attacking = false
+
+var attack_player_continuously = false
+var continuous_attack_countdown = 5
+
 var hideouts = []
 
 
@@ -50,7 +59,10 @@ func _process(delta):
 		if !is_event_triggered:
 			is_event_triggered = true
 			enemy.is_attacking_player = true
-			
+	
+	if attack_player_continuously:
+		attack_player_continuously()
+	
 	process_current_tasks()
 	
 	
@@ -68,9 +80,77 @@ func process_current_tasks():
 			player.typewriter_dialog.start_dialog(["Next building... 41. Where is it?", "This shift will never end."], get_process_delta_time())
 			player.update_current_task("Deliver stuff for the building 41.")
 
+	if !is_third_task_complete:
+		if is_second_task_complete && !has_creature_howled:
+			if howling_timeout > 0:
+				howling_timeout -= (1 * get_process_delta_time())
+			else:
+				has_creature_howled = true
+				player.typewriter_dialog.start_dialog(["What the hell was that?!", "I need to finish my work as quickly as possible and get the hell out."], get_process_delta_time())
+
+	if !is_fourth_task_complete:
+		if building_6.is_first_row_full or building_6.is_second_row_full or building_6.is_third_row_full or building_6.is_fourth_row_full:
+			is_fourth_task_complete = true
+			player.typewriter_dialog.start_dialog(["That's good enough, really. I bet there was nothing important for them anyway."], get_process_delta_time())
+			player.update_current_task("Deliver stuff for the building 20.")
+
+	if !is_fifth_task_complete:
+		if is_fourth_task_complete:
+			if initial_attack_timeout > 0:
+				initial_attack_timeout -= (1 * get_process_delta_time())
+			else:
+				if !has_creature_started_attacking:
+					has_creature_started_attacking = true
+					enemy.is_attacking_player = true
+					
+			if player.player_health < 90:
+				is_fifth_task_complete = true
+				player.is_able_to_pick_weapons = true
+				player.typewriter_dialog.start_dialog(["WHAT THE HELL WAS THAT?", "I am bleeding. WHAT THE HELL!", "I am bleeding for real!", "Alright, calm down. Maybe it was just some hallucitation.", "Yes... probably. I need to get some weapon to be extra sure though."], get_process_delta_time())
+				player.update_current_task("Find some weapon. It's watching.")
+
+	if !is_sixth_task_complete:
+		if is_fifth_task_complete:
+			if player.current_weapon != 0:
+				player.typewriter_dialog.start_dialog(["Thank god, this will do.", "It seems that the bleeding stopped.", "I only have two buildings to deliver the mail to, this one is building number 20.", "If that wasn't just a dream... I will need to find someone to open the gate for me. Why is nobody outside?"], get_process_delta_time())
+				player.update_current_task("Deliver stuff for the building 20.")
+				is_sixth_task_complete = true
+
+	if !is_seventh_task_complete:
+		if is_sixth_task_complete:
+			if building_15.is_first_row_full or building_15.is_second_row_full or building_15.is_third_row_full or building_15.is_fourth_row_full:
+				player.typewriter_dialog.start_dialog(["This will do, I bet the management will understand.", "Now, I just need a building 52. And next time, I will prepare my mails in the order... if I ever get back here."], get_process_delta_time())
+				# scream here
+				attack_player_continuously = true
+				player.update_current_task("Defend yourself.")
+				is_seventh_task_complete = true
+				
+	if !is_eighth_task_complete:
+		if is_seventh_task_complete:
+			if enemy.is_going_to_hideout:
+				player.typewriter_dialog.start_dialog(["Goddamit, that was close.", "So, this is real. I have to get the hell out of here as quickly as possible, screw letters and screw this thing."], get_process_delta_time())
+				# scream here
+				player.update_current_task("Get the hell out.")
+				is_eighth_task_complete = true
+				
+	if !is_ninth_task_complete:
+		if is_eighth_task_complete:
+			player.player_health < 50
+			player.update_current_task("Survive.")
+	
+
 func get_all_hideouts():
 	for node in get_tree().get_nodes_in_group("group_hideout"):
 		hideouts.append(node)
 		enemy.hideouts.append(node)
 	
 	enemy.find_closest_hideout(enemy.global_transform.origin)
+
+
+func attack_player_continuously():
+	if enemy.is_in_hideout:
+		if continuous_attack_countdown > 0:
+			continuous_attack_countdown -= (1 * get_process_delta_time())
+		else:
+			continuous_attack_countdown = 10
+			enemy.is_attacking_player = true

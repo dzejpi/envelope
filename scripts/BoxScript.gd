@@ -21,6 +21,10 @@ func _ready():
 		full_box_sprite.texture = magazine_sprite
 	else:
 		full_box_sprite.texture = letter_sprite
+		
+	var another_random_number = rand_range(0, 1)
+	if another_random_number < 0.2:
+		fill_box()
 
 
 func fill_box():
