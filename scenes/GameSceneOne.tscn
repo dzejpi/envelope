@@ -99,7 +99,7 @@ __meta__ = {
 [node name="TransitionOverlay" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -375.159, 1, 99.4976 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -382.094, 2.14673, 99.4976 )
 
 [node name="Enemy" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -382.775, 0, 77.116 )

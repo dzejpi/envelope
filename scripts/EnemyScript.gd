@@ -17,6 +17,8 @@ var jump = 6
 var gravity = 16
 
 var is_stalking_player = false
+var is_at_edge = false
+
 var is_attacking_player = false
 var player_attacked = false
 
@@ -45,6 +47,9 @@ func _process(delta):
 	if is_going_to_hideout:
 		look_at_hideout()
 		move_forward(delta)
+		
+	if is_in_hideout:
+		stalk_player(delta)
 	
 	if enemy_ray_cast.is_colliding():
 		var collision_object = enemy_ray_cast.get_collider().name
@@ -64,8 +69,9 @@ func _physics_process(delta):
 	pass
 
 
-func stalk_player():
-	pass
+func stalk_player(delta):
+	look_at_player()
+	move_forward(delta)
 	
 
 func attack_player():
@@ -105,7 +111,7 @@ func look_at_hideout():
 
 
 func move_forward(delta):
-	if !is_climbing:
+	if !is_climbing && !is_at_edge:
 		var new_position = transform.origin + transform.basis.z * speed * delta * (-1)
 		transform.origin = new_position
 		
@@ -140,3 +146,8 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 				is_attacking_player = false
 		"Building":
 			is_climbing = true
+		"HideoutPlace":
+			is_going_to_hideout = false
+			is_in_hideout = true
+		"BuildingEdge":
+			is_at_edge = true
