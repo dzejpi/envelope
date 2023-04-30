@@ -9,6 +9,8 @@ onready var game_over_scene = $UI/GameEnd/GameOverScene
 onready var animation_player = $PlayerHead/PlayerCamera/AnimationPlayer
 onready var player_camera = $PlayerHead/PlayerCamera
 
+onready var player_weapon = $PlayerHead/PlayerCamera/PlayerWeapon
+
 # UI
 onready var player_ui = $UI/PlayerUI
 onready var typewriter_dialog = $UI/PlayerUI/TypewriterDialog
@@ -21,6 +23,11 @@ var indicator_healthy = preload("res://assets/visual/ui/health/ase_health_indica
 var indicator_low = preload("res://assets/visual/ui/health/ase_health_indicator_low.png") 
 var indicator_medium = preload("res://assets/visual/ui/health/ase_health_indicator_medium.png") 
 var indicator_severe = preload("res://assets/visual/ui/health/ase_health_indicator_severe.png")
+
+var no_weapon_sprite = preload("res://assets/visual/ui/weapons/ase_weapons_no_weapon.png")
+var baseball_bat = preload("res://assets/visual/ui/weapons/ase_weapons_baseball_bat.png")
+var crowbar = preload("res://assets/visual/ui/weapons/ase_weapons_crowbar.png") 
+var wooden_plank = preload("res://assets/visual/ui/weapons/ase_weapons_wooden_plank.png")
 
 var is_game_over = false
 
@@ -52,6 +59,8 @@ var is_paused = false
 
 # Name of the observed object for debugging purposes
 var observed_object = "" 
+
+var current_weapon = 0
 
 
 func _ready():
@@ -235,6 +244,9 @@ func process_object_prompt(observed_object, raycast_object):
 		"Building":
 			player_prompt_label.hide()
 			player_prompt_label.text = ""
+		"Weapon":
+			player_prompt_label.show()
+			player_prompt_label.text = "Pick up the weapon"
 
 
 func process_action_on_object(observed_object, raycast_object):
@@ -244,6 +256,10 @@ func process_action_on_object(observed_object, raycast_object):
 				raycast_object.fill_box()
 		"Enemy":
 			raycast_object.receive_damage(30)
+		"Weapon":
+			current_weapon = raycast_object.weapon_type
+			raycast_object.pick_up()
+			update_weapon_sprite()
 
 
 func receive_damage(damage_amount):
@@ -269,3 +285,14 @@ func update_damage_sprite():
 	else:
 		health_indicator_sprite.texture = indicator_severe
 		health_indicator_sprite_two.texture = indicator_severe
+
+func update_weapon_sprite():
+	match(current_weapon):
+		0:
+			player_weapon.texture = no_weapon_sprite
+		1:
+			player_weapon.texture = baseball_bat
+		2:
+			player_weapon.texture = crowbar
+		3:
+			player_weapon.texture = wooden_plank
