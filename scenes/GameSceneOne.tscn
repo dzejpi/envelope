@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/visual/game_env/skybox_cube_panorama.png" type="Texture" id=1]
 [ext_resource path="res://scenes/TransitionOverlay.tscn" type="PackedScene" id=2]
@@ -12,8 +12,41 @@
 [ext_resource path="res://scenes/FenceScene.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/visual/fence/spr_fence_doors.png" type="Texture" id=11]
 [ext_resource path="res://scenes/LampScene.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/visual/enemy/spr_enemy_climbing2.png" type="Texture" id=13]
+[ext_resource path="res://assets/visual/enemy/spr_enemy_running2.png" type="Texture" id=14]
+[ext_resource path="res://assets/visual/enemy/spr_enemy_attacking.png" type="Texture" id=15]
+[ext_resource path="res://assets/visual/enemy/spr_enemy_climbing1.png" type="Texture" id=16]
+[ext_resource path="res://assets/visual/enemy/spr_enemy_running1.png" type="Texture" id=17]
 
 [sub_resource type="CapsuleShape" id=5]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "attacking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "climbing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "jump away",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "running_towards",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "stalking",
+"speed": 5.0
+} ]
 
 [sub_resource type="PanoramaSky" id=4]
 panorama = ExtResource( 1 )
@@ -287,10 +320,13 @@ script = ExtResource( 7 )
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 1, 0 )
 shape = SubResource( 5 )
 
-[node name="EnemyAnimatedSprite" type="Sprite3D" parent="Enemy"]
+[node name="EnemyAnimatedSprite" type="AnimatedSprite3D" parent="Enemy"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 offset = Vector2( 0, 128 )
 billboard = 2
-texture = ExtResource( 6 )
+frames = SubResource( 6 )
+animation = "stalking"
+playing = true
 
 [node name="EnemyRayCast" type="RayCast" parent="Enemy"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26966, 0 )

@@ -3,6 +3,7 @@ extends KinematicBody
 
 onready var player = $"../Player"
 onready var enemy_ray_cast = $EnemyRayCast
+onready var enemy_animated_sprite = $EnemyAnimatedSprite
 
 var hideouts = []
 var closest_hideout = null
@@ -12,7 +13,7 @@ var ground_y = 0
 
 var enemy_health = 100
 
-var speed = 6
+var speed = 10
 var jump = 6
 var gravity = 16
 
@@ -37,14 +38,14 @@ var is_alive = true
 # Name of the observed object for debugging purposes
 var observed_object = "" 
 
+
 func _ready():
 	pass
 
 
 func _process(delta):
 	if is_attacking_player:
-		look_at_player()
-		move_forward(delta)
+		attack_player(delta)
 	
 	if is_going_to_hideout:
 		look_at_hideout()
@@ -67,6 +68,7 @@ func _process(delta):
 			observed_object = collision_object
 			print("Enemy is looking at: nothing.")
 
+
 func _physics_process(delta):
 	pass
 
@@ -74,10 +76,13 @@ func _physics_process(delta):
 func stalk_player(delta):
 	look_at_player()
 	move_forward(delta)
+	enemy_animated_sprite.set_animation("stalking")
 	
 
-func attack_player():
-	pass
+func attack_player(delta):
+	look_at_player()
+	move_forward(delta)
+	enemy_animated_sprite.set_animation("running_towards")
 
 
 func run_aray():
@@ -118,7 +123,7 @@ func move_forward(delta):
 	if !is_climbing && !is_at_edge:
 		var new_position = transform.origin + transform.basis.z * speed * delta * (-1)
 		transform.origin = new_position
-		
+
 	if is_climbing:
 		if transform.origin.y < roof_y:
 			var new_position = transform.origin + transform.basis.y * speed * delta * (1)
@@ -144,13 +149,16 @@ func find_closest_hideout(current_enemy_position):
 func process_enemy_action_on_object(observed_object, raycast_object):
 	match(observed_object):
 		"Player":
+			enemy_animated_sprite.set_animation("attacking")
 			if !player_attacked:
 				raycast_object.receive_damage(20)
 				player_attacked = true
+				is_climbing = true
 				is_going_to_hideout = true
 				is_attacking_player = false
 		"Building":
 			is_climbing = true
+			enemy_animated_sprite.set_animation("climbing")
 		"HideoutPlace":
 			is_going_to_hideout = false
 			is_in_hideout = true
