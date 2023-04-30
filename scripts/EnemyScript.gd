@@ -69,6 +69,11 @@ func _process(delta):
 			observed_object = collision_object
 			print("Enemy is looking at: nothing.")
 
+	if transform.origin.y >= roof_y:
+		is_climbing = false
+		is_jumping = false
+		if !is_in_hideout:
+			enemy_animated_sprite.set_animation("running_towards")
 
 func _physics_process(delta):
 	pass
@@ -99,6 +104,7 @@ func receive_damage(damage_amount):
 		is_alive = false
 		
 	is_going_to_hideout = true
+	is_jumping = true
 	find_closest_hideout(self.global_transform.origin)
 	player_attacked = true
 	is_attacking_player = false
@@ -126,12 +132,21 @@ func move_forward(delta):
 		var new_position = transform.origin + transform.basis.z * speed * delta * (-1)
 		transform.origin = new_position
 
+	if is_jumping:
+		if transform.origin.y < roof_y:
+			var new_position = transform.origin + transform.basis.y * (speed/2) * delta * (1)
+			transform.origin = new_position
+			
+			var forward_position = transform.origin + transform.basis.z * (speed*4) * delta * (-1)
+			transform.origin = forward_position
+
 	if is_climbing:
 		if transform.origin.y < roof_y:
 			var new_position = transform.origin + transform.basis.y * (speed/2) * delta * (1)
 			transform.origin = new_position
 		else:
 			is_climbing = false
+			is_jumping = false
 			enemy_animated_sprite.set_animation("running_towards")
 
 
@@ -158,8 +173,11 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 				player_attacked = true
 				find_closest_hideout(self.global_transform.origin)
 				is_going_to_hideout = true
+				is_jumping = true
 				is_attacking_player = false
 		"Building":
+			if is_jumping:
+				is_jumping = false
 			if is_going_to_hideout:
 				is_climbing = true
 				enemy_animated_sprite.set_animation("climbing")
