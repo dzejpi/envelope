@@ -2098,70 +2098,138 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -394, 0
 [node name="Building2" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -393.851, 0, -9 )
 building_number = "11"
+building_first_number = "110"
+building_second_number = "111"
+building_third_number = "112"
+building_fourth_number = "113"
 
 [node name="Building3" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -409.664, 0, 236 )
 building_number = "61"
+building_first_number = "610"
+building_second_number = "611"
+building_third_number = "612"
+building_fourth_number = "613"
 
 [node name="Building4" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -409.664, 0, 348 )
 building_number = "60"
+building_first_number = "600"
+building_second_number = "601"
+building_third_number = "602"
+building_fourth_number = "603"
 
 [node name="Building5" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -298, 0, 300 )
 building_number = "40"
+building_first_number = "400"
+building_second_number = "401"
+building_third_number = "402"
+building_fourth_number = "403"
 
 [node name="Building6" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -217, 0, 300 )
 building_number = "41"
+building_first_number = "410"
+building_second_number = "411"
+building_third_number = "412"
+building_fourth_number = "413"
 
 [node name="Building7" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -121.993, 0, 300 )
 building_number = "42"
+building_first_number = "420"
+building_second_number = "421"
+building_third_number = "422"
+building_fourth_number = "423"
 
 [node name="Building8" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, -96.326, 0, -122.339 )
 building_number = "22"
+building_first_number = "220"
+building_second_number = "221"
+building_third_number = "222"
+building_fourth_number = "223"
 
 [node name="Building9" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 0.642788, 0, 0.766045, 0, 1, 0, -0.766045, 0, 0.642788, -319.74, 0, 94.5822 )
 building_number = "30"
+building_first_number = "300"
+building_second_number = "301"
+building_third_number = "302"
+building_fourth_number = "303"
 
 [node name="Building10" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 0.642788, 0, 0.766045, 0, 1, 0, -0.766045, 0, 0.642788, -240.447, 0, 94.5822 )
 building_number = "31"
+building_first_number = "310"
+building_second_number = "311"
+building_third_number = "312"
+building_fourth_number = "313"
 
 [node name="Building11" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -187.5, 0, 361.045 )
 building_number = "51"
+building_first_number = "510"
+building_second_number = "511"
+building_third_number = "512"
+building_fourth_number = "513"
 
 [node name="Building12" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -308.5, 0, 361.045 )
 building_number = "52"
+building_first_number = "520"
+building_second_number = "521"
+building_third_number = "522"
+building_fourth_number = "523"
 
 [node name="Building13" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( -0.655624, 0, -0.755087, 0, 1, 0, 0.755087, 0, -0.655624, -29.9834, 0, 284.602 )
 building_number = "50"
+building_first_number = "500"
+building_second_number = "501"
+building_third_number = "502"
+building_fourth_number = "503"
 
 [node name="Building14" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 1.49012e-07, 0, -1, 0, 1, 0, 1, 0, 1.49012e-07, -39.1205, 0, 127.565 )
 building_number = "43"
+building_first_number = "430"
+building_second_number = "431"
+building_third_number = "432"
+building_fourth_number = "433"
 
 [node name="Building15" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -361.5, 0, -105.945 )
 building_number = "20"
+building_first_number = "200"
+building_second_number = "201"
+building_third_number = "202"
+building_fourth_number = "203"
 
 [node name="Building16" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -240.5, 0, -106.022 )
 building_number = "21"
+building_first_number = "210"
+building_second_number = "211"
+building_third_number = "212"
+building_fourth_number = "213"
 
 [node name="Building17" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 8.9407e-08, 0, -1, 0, 1, 0, 1, 0, 8.9407e-08, -32.5, 0, -31 )
 building_number = "33"
+building_first_number = "330"
+building_second_number = "331"
+building_third_number = "332"
+building_fourth_number = "333"
 
 [node name="Building18" parent="Buildings" instance=ExtResource( 8 )]
 transform = Transform( 0.642788, 0, 0.766045, 0, 1, 0, -0.766045, 0, 0.642788, -144.135, 0, 94.5822 )
 building_number = "32"
+building_first_number = "320"
+building_second_number = "321"
+building_third_number = "322"
+building_fourth_number = "323"
 
 [node name="Weapons" type="Node" parent="."]
 
