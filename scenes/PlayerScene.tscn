@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PauseScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/GameOverScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/TypewriterDialogScene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/font_48.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/visual/ui/cross/spr_ui_cross.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Head Bob"
@@ -132,3 +133,7 @@ margin_bottom = 448.0
 custom_fonts/font = ExtResource( 5 )
 custom_styles/normal = SubResource( 5 )
 valign = 1
+
+[node name="CrossSprite" type="Sprite" parent="UI/PlayerUI"]
+position = Vector2( 683, 384 )
+texture = ExtResource( 6 )
