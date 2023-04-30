@@ -69,6 +69,8 @@ var is_debug_triggered = false
 
 var is_able_to_pick_weapons = false
 
+var weapon_hits_left = 0
+
 # Name of the observed object for debugging purposes
 var observed_object = "" 
 
@@ -303,6 +305,13 @@ func process_action_on_object(observed_object, raycast_object):
 				raycast_object.receive_damage(30)
 				animation_player.play("Weapon Swing")
 				global_var.play_sound("enemy_scream")
+				if current_weapon == 1 or current_weapon == 3:
+					weapon_hits_left -= 1
+					
+				if weapon_hits_left <= 0:
+					current_weapon = 0
+					update_weapon_sprite()
+					typewriter_dialog.start_dialog(["Oh no, it broke. I must find something new quickly!"], get_process_delta_time())
 			
 			var monster_health = raycast_object.enemy_health
 			if monster_health <= 0:
@@ -313,6 +322,7 @@ func process_action_on_object(observed_object, raycast_object):
 				current_weapon = raycast_object.weapon_type
 				global_var.play_sound("weapon_pickup")
 				raycast_object.pick_up()
+				weapon_hits_left = 4
 				update_weapon_sprite()
 		"nothing":
 			if current_weapon > 0:
