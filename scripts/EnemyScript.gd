@@ -10,23 +10,15 @@ var speed = 6
 var jump = 6
 var gravity = 16
 
-var ground_acceleration = 8
-var air_acceleration = 2
-var acceleration = ground_acceleration
-
-var slide_prevention = 10
-
-var direction = Vector3()
-var velocity = Vector3()
-var movement = Vector3()
-var gravity_vector = Vector3()
-
 var is_stalking_player = false
 var is_attacking_player = false
+var player_attacked = false
 var is_runnig_away_from_player = false
 var is_climbing = false
 
 var is_on_ground = true
+
+var is_alive = true
 
 # Name of the observed object for debugging purposes
 var observed_object = "" 
@@ -45,10 +37,14 @@ func _process(delta):
 		if collision_object != observed_object:
 			observed_object = collision_object
 			print("Enemy is looking at: " + observed_object + ".")
-
+	else:
+		var collision_object = "nothing"
+		if collision_object != observed_object:
+			observed_object = collision_object
+			print("Enemy is looking at: nothing.")
 
 func _physics_process(delta):
-	move_forward(delta)
+	pass
 
 
 func stalk_player():
@@ -63,6 +59,13 @@ func run_aray():
 	pass
 
 
+func receive_damage(damage_amount):
+	health -= damage_amount
+	
+	if health <= 0:
+		is_alive = false
+
+
 # Necessary to always look towards the player, useful for attacking
 func look_at_player():
 	var target_pos = player.global_transform.origin
@@ -72,5 +75,5 @@ func look_at_player():
 
 
 func move_forward(delta):
-	var new_pos = transform.origin + transform.basis.z * speed * delta * (-1)
-	transform.origin = new_pos
+	var new_position = transform.origin + transform.basis.z * speed * delta * (-1)
+	transform.origin = new_position
