@@ -63,7 +63,10 @@ func process_current_tasks():
 			player.update_current_task("Deliver stuff for the building 30.")
 			
 	if !is_second_task_complete:
-		pass
+		if building_9.is_whole_building_complete:
+			is_second_task_complete = true
+			player.typewriter_dialog.start_dialog(["Next building... 41. Where is it?", "This shift will never end."], get_process_delta_time())
+			player.update_current_task("Deliver stuff for the building 41.")
 
 func get_all_hideouts():
 	for node in get_tree().get_nodes_in_group("group_hideout"):
