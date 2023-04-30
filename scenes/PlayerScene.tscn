@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PauseScene.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://fonts/font_48.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/visual/ui/cross/spr_ui_cross.png" type="Texture" id=6]
 [ext_resource path="res://assets/visual/ui/health/ase_health_indicator_severe.png" type="Texture" id=7]
+[ext_resource path="res://assets/visual/ui/weapons/ase_weapons_crowbar.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Head Bob"
@@ -90,6 +91,10 @@ far = 500.0
 "anims/Head Bob" = SubResource( 2 )
 "anims/Jump Land" = SubResource( 4 )
 anims/RESET = SubResource( 3 )
+
+[node name="PlayerWeapon" type="Sprite3D" parent="PlayerHead/PlayerCamera"]
+transform = Transform( 0.528586, -0.108784, -0.84188, 0.377846, 0.918243, 0.118585, 0.760151, -0.380783, 0.526474, 0.296194, -0.0170523, -0.303657 )
+texture = ExtResource( 8 )
 
 [node name="RayCast" type="RayCast" parent="PlayerHead"]
 enabled = true
