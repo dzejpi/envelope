@@ -57,6 +57,8 @@ var gravity_vector = Vector3()
 var player_health = 100
 var current_player_task = "Task placeholder."
 
+var is_walking_being_played = false
+
 var is_on_ground = true
 var is_paused = false
 
@@ -83,6 +85,7 @@ func _ready():
 	check_game_won()
 	update_damage_sprite()
 	update_weapon_sprite()
+	global_var.play_music()
 
 
 func _input(event):
@@ -167,7 +170,13 @@ func _physics_process(delta):
 	if !is_game_over && !is_paused:
 		if direction != Vector3():
 			if !(animation_player.current_animation == "Weapon Swing"):
+				if !is_walking_being_played:
+					is_walking_being_played = true
+					global_var.play_sound("player_walk")
 				animation_player.play("Head Bob")
+		else:
+			is_walking_being_played = false
+			global_var.stop_sound("player_walk")
 	
 
 func check_pause_update():
@@ -284,6 +293,7 @@ func process_action_on_object(observed_object, raycast_object):
 		"Enemy":
 			raycast_object.receive_damage(30)
 			animation_player.play("Weapon Swing")
+			global_var.play_sound("weapon_swing")
 			var monster_health = raycast_object.enemy_health
 			if monster_health <= 0:
 				is_game_won = true
@@ -291,13 +301,17 @@ func process_action_on_object(observed_object, raycast_object):
 		"Weapon":
 			if is_able_to_pick_weapons:
 				current_weapon = raycast_object.weapon_type
+				global_var.play_sound("weapon_pickup")
 				raycast_object.pick_up()
 				update_weapon_sprite()
 		"nothing":
-			animation_player.play("Weapon Swing")
+			if current_weapon > 0:
+				animation_player.play("Weapon Swing")
+				global_var.play_sound("weapon_swing")
 
 func receive_damage(damage_amount):
 	player_health -= damage_amount
+	global_var.play_sound("player_hit")
 	
 	if player_health <= 0:
 		is_game_over = true

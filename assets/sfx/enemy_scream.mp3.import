@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/enemy_scream.mp3-e86bf023be7adf6234e10c9c4452850c.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/enemy_scream.mp3"
+dest_files=[ "res://.import/enemy_scream.mp3-e86bf023be7adf6234e10c9c4452850c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

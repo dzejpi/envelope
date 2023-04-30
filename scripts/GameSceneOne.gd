@@ -120,7 +120,7 @@ func process_current_tasks():
 		if is_sixth_task_complete:
 			if building_15.is_first_row_full or building_15.is_second_row_full or building_15.is_third_row_full or building_15.is_fourth_row_full:
 				player.typewriter_dialog.start_dialog(["This will do, I bet the management will understand.", "Now, I just need a building 52. And next time, I will prepare my mails in the order... if I ever get back here."], get_process_delta_time())
-				# scream here
+				global_var.play_sound("sfx_enemy_scream")
 				attack_player_continuously = true
 				player.update_current_task("Defend yourself.")
 				is_seventh_task_complete = true
@@ -129,7 +129,7 @@ func process_current_tasks():
 		if is_seventh_task_complete:
 			if enemy.is_going_to_hideout:
 				player.typewriter_dialog.start_dialog(["Goddamit, that was close.", "So, this is real. I have to get the hell out of here as quickly as possible, screw letters and screw this thing."], get_process_delta_time())
-				# scream here
+				global_var.play_sound("")
 				player.update_current_task("Get the hell out.")
 				is_eighth_task_complete = true
 				

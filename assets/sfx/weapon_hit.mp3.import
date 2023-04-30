@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/weapon_hit.mp3-18b9e94adaa634ceb591e254f2b16189.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/weapon_hit.mp3"
+dest_files=[ "res://.import/weapon_hit.mp3-18b9e94adaa634ceb591e254f2b16189.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

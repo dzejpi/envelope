@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/weapon_pickup.mp3-d7897138c96da40447318c198d886abc.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/weapon_pickup.mp3"
+dest_files=[ "res://.import/weapon_pickup.mp3-d7897138c96da40447318c198d886abc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
