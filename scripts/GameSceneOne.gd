@@ -91,7 +91,7 @@ func process_current_tasks():
 	if !is_fourth_task_complete:
 		if building_6.is_first_row_full or building_6.is_second_row_full or building_6.is_third_row_full or building_6.is_fourth_row_full:
 			is_fourth_task_complete = true
-			player.typewriter_dialog.start_dialog(["That's good enough, really. I bet there was nothing important for them anyway."], get_process_delta_time())
+			player.typewriter_dialog.start_dialog(["That's good enough, really. I bet there was nothing important for them anyway.", "Now, the next building is 20."], get_process_delta_time())
 			player.update_current_task("Deliver stuff for the building 20.")
 
 	if !is_fifth_task_complete:
