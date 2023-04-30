@@ -112,6 +112,7 @@ func receive_damage(damage_amount):
 	
 	if enemy_health <= 0:
 		is_alive = false
+		hide()
 		
 	is_attacking_player = false
 	is_going_to_hideout = true
