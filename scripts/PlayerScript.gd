@@ -181,6 +181,10 @@ func _physics_process(delta):
 			is_walking_being_played = false
 			player_audio_stream_player_3d.play()
 	
+	if is_game_over or is_game_won or is_paused:
+		speed = 0
+	else:
+		speed = 6
 
 func check_pause_update():
 	if is_paused != pause_scene.is_game_paused:
