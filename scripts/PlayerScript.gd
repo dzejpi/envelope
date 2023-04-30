@@ -92,7 +92,7 @@ func _ready():
 
 
 func _input(event):
-	if !pause_scene.is_game_paused && !is_game_over:
+	if !pause_scene.is_game_paused && !is_game_over && !is_game_won:
 		if event is InputEventMouseMotion:
 			rotation_degrees.y -= event.relative.x * mouse_sensitivity / 10
 			player_head.rotation_degrees.x = clamp(player_head.rotation_degrees.x - event.relative.y * mouse_sensitivity / 10, -90, 90)
@@ -170,7 +170,7 @@ func _physics_process(delta):
 	
 	var _player_movement = move_and_slide(movement, Vector3.UP)
 	
-	if !is_game_over && !is_paused:
+	if !is_game_over && !is_paused && !is_game_won:
 		if direction != Vector3():
 			if !(animation_player.current_animation == "Weapon Swing"):
 				if !is_walking_being_played:
@@ -295,11 +295,10 @@ func process_action_on_object(observed_object, raycast_object):
 				raycast_object.fill_box()
 				global_var.play_sound("envelope_fill")
 		"Enemy":
-			#if current_weapon > 0:
-				
-			raycast_object.receive_damage(30)
-			animation_player.play("Weapon Swing")
-			global_var.play_sound("enemy_scream")
+			if current_weapon > 0:
+				raycast_object.receive_damage(30)
+				animation_player.play("Weapon Swing")
+				global_var.play_sound("enemy_scream")
 			
 			var monster_health = raycast_object.enemy_health
 			if monster_health <= 0:
