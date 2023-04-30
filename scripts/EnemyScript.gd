@@ -49,11 +49,15 @@ func _ready():
 
 func _process(delta):
 	if is_attacking_player:
+		enemy_ray_cast.cast_to = Vector3(0, 0, -1)
+		speed = 12
 		is_at_edge = false
 		is_in_hideout = false
 		attack_player(delta)
 	
 	if is_going_to_hideout:
+		enemy_ray_cast.cast_to = Vector3(0, 0, -3)
+		speed = 8
 		look_at_hideout()
 		move_forward(delta)
 		
@@ -140,15 +144,15 @@ func move_forward(delta):
 
 	if is_jumping:
 		if transform.origin.y < roof_y:
-			var new_position = transform.origin + transform.basis.y * (speed/2) * delta * (1)
+			var new_position = transform.origin + transform.basis.y * (speed / 2) * delta * (1)
 			transform.origin = new_position
 			
-			var forward_position = transform.origin + transform.basis.z * (speed*4) * delta * (-1)
+			var forward_position = transform.origin + transform.basis.z * (speed * 4) * delta * (-1)
 			transform.origin = forward_position
 
 	if is_climbing:
 		if transform.origin.y < roof_y:
-			var new_position = transform.origin + transform.basis.y * (speed/2) * delta * (1)
+			var new_position = transform.origin + transform.basis.y * (speed / 2) * delta * (1)
 			transform.origin = new_position
 		else:
 			is_climbing = false
@@ -157,7 +161,7 @@ func move_forward(delta):
 			
 	if is_attacking_player && !is_going_to_hideout:
 		if transform.origin.y > ground_y:
-			var new_position = transform.origin + transform.basis.y * (speed*2) * delta * (-1)
+			var new_position = transform.origin + transform.basis.y * (speed * 2) * delta * (-1)
 			transform.origin = new_position
 
 
