@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/visual/game_env/skybox_cube_panorama.png" type="Texture" id=1]
 [ext_resource path="res://scenes/TransitionOverlay.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scripts/EnemyScript.gd" type="Script" id=7]
 [ext_resource path="res://scenes/BuildingScene.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/visual/box_items/ase_box_items_magazine.png" type="Texture" id=9]
+[ext_resource path="res://scenes/FenceScene.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/visual/fence/spr_fence_doors.png" type="Texture" id=11]
 
 [sub_resource type="CapsuleShape" id=5]
 
@@ -21,10 +23,161 @@ background_sky = SubResource( 4 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.0
 ambient_light_sky_contribution = 0.0
+dof_blur_far_distance = 150.0
 glow_enabled = true
 
 [node name="GameSceneOne" type="Spatial"]
 script = ExtResource( 3 )
+
+[node name="Fences" type="Node" parent="."]
+
+[node name="FenceSprite" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 3.86357, 0, -3.5026, 0, 4, 0, 7.0052, 0, 1.93178, -412.256, 0, 129.677 )
+
+[node name="FenceSprite2" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -414.614, 0, 120.071 )
+texture = ExtResource( 11 )
+
+[node name="FenceSprite3" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -0.156651, 0, -3.99923, 0, 4, 0, 7.99847, 0, -0.0783254, -409.931, 0, 139.232 )
+
+[node name="FenceSprite4" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -6.93997, 0, -1.98977, 0, 4, 0, 3.97955, 0, -3.46999, -410.178, 0, 112.45 )
+
+[node name="FenceSprite5" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -0.156651, 0, -3.99923, 0, 4, 0, 7.99847, 0, -0.0783254, -409.931, 0, 247.045 )
+
+[node name="FenceSprite6" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -0.156651, 0, -3.99923, 0, 4, 0, 7.99847, 0, -0.0783254, -409.809, 0, 236.932 )
+
+[node name="FenceSprite7" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -0.156651, 0, -3.99923, 0, 4, 0, 7.99847, 0, -0.0783254, -409.809, 0, 353.13 )
+
+[node name="FenceSprite8" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 4.49031, 0, -3.31048, 0, 4, 0, 6.62096, 0, 2.24516, -406.987, 0, 362.426 )
+
+[node name="FenceSprite9" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -303.262, 0, 361.506 )
+
+[node name="FenceSprite10" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -292.904, 0, 361.585 )
+
+[node name="FenceSprite11" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -182.391, 0, 361.585 )
+
+[node name="FenceSprite12" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -172.391, 0, 361.585 )
+
+[node name="FenceSprite13" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -162.391, 0, 361.585 )
+
+[node name="FenceSprite14" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -152.391, 0, 361.585 )
+
+[node name="FenceSprite15" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -142.391, 0, 361.585 )
+
+[node name="FenceSprite16" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -132.391, 0, 361.585 )
+
+[node name="FenceSprite17" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -122.391, 0, 361.585 )
+
+[node name="FenceSprite18" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -112.391, 0, 361.585 )
+
+[node name="FenceSprite19" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 8, 0, 0, 0, 4, 0, 0, 0, 4, -102.391, 0, 361.585 )
+
+[node name="FenceSprite20" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 6.9282, 0, 2, 0, 4, 0, -4, 0, 3.4641, -92.9164, 0, 359.003 )
+
+[node name="FenceSprite21" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -30.0452, 0, 279.58 )
+
+[node name="FenceSprite22" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -30.0452, 0, 269.58 )
+
+[node name="FenceSprite23" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -30.0452, 0, 259.58 )
+
+[node name="FenceSprite24" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -30.0452, 0, 249.58 )
+
+[node name="FenceSprite25" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -30.0452, 0, 239.58 )
+
+[node name="FenceSprite26" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( 4.07257, 0, -3.4429, 0, 4, 0, 6.88579, 0, 2.03629, -32.6793, 0, 230.099 )
+
+[node name="FenceSprite27" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -37.869, 0, 122.292 )
+
+[node name="FenceSprite28" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -37.869, 0, 112.292 )
+
+[node name="FenceSprite29" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -37.869, 0, 102.292 )
+
+[node name="FenceSprite30" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -37.869, 0, 92.2917 )
+
+[node name="FenceSprite31" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -37.869, 0, 82.2917 )
+
+[node name="FenceSprite32" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -4.53551, 0, -3.29504, 0, 4, 0, 6.59008, 0, -2.26775, -35.0343, 0, 73.0741 )
+
+[node name="FenceSprite33" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -32.0343, 0, -36.1434 )
+
+[node name="FenceSprite34" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -3.49691e-07, 0, -4, 0, 4, 0, 8, 0, -1.74846e-07, -32.0343, 0, -46.1434 )
+
+[node name="FenceSprite35" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -5.65685, 0, -2.82843, 0, 4, 0, 5.65685, 0, -2.82843, -99.9139, 0, -118.473 )
+
+[node name="FenceSprite36" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -5.65685, 0, -2.82843, 0, 4, 0, 5.65685, 0, -2.82843, -107.039, 0, -111.299 )
+
+[node name="FenceSprite37" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -115.775, 0, -107.702 )
+
+[node name="FenceSprite38" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -125.775, 0, -107.702 )
+
+[node name="FenceSprite39" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -7.90778, 0, -0.605595, 0, 4, 0, 1.21119, 0, -3.95389, -135.775, 0, -106.907 )
+
+[node name="FenceSprite40" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -245.65, 0, -106.217 )
+
+[node name="FenceSprite41" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -255.872, 0, -106.217 )
+
+[node name="FenceSprite42" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -266.032, 0, -106.217 )
+
+[node name="FenceSprite43" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -366.697, 0, -106.217 )
+
+[node name="FenceSprite44" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -376.697, 0, -106.217 )
+
+[node name="FenceSprite45" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -7.80153, 0, 0.885445, 0, 4, 0, -1.77089, 0, -3.90077, -386.697, 0, -107.352 )
+
+[node name="FenceSprite46" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -8, 0, 2.38419e-07, 0, 4, 0, -4.76837e-07, 0, -4, -396.698, 9.53674e-07, -108.451 )
+
+[node name="FenceSprite47" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -1.27146e-07, 0, -4, 0, 4, 0, 8, 0, -6.3573e-08, -394.697, 0, -4.21744 )
+
+[node name="FenceSprite48" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -1.27146e-07, 0, -4, 0, 4, 0, 8, 0, -6.3573e-08, -394.697, 0, 5.78256 )
+
+[node name="FenceSprite49" parent="Fences" instance=ExtResource( 10 )]
+transform = Transform( -1.27146e-07, 0, -4, 0, 4, 0, 8, 0, -6.3573e-08, -394.691, 0, 15.7826 )
 
 [node name="Buildings" type="Node" parent="."]
 
