@@ -5,11 +5,22 @@ export var row = 1
 
 onready var full_box_sprite = $FullBoxSprite
 
+var letter_sprite = preload("res://assets/visual/box_items/ase_box_items_letter.png")
+var magazine_sprite = preload("res://assets/visual/box_items/ase_box_items_magazine.png")
+
 var is_filled = false
 
 
 func _ready():
 	full_box_sprite.hide()
+	full_box_sprite.texture = magazine_sprite
+	
+	randomize()
+	var random_number = rand_range(0, 1)
+	if random_number < 0.5:
+		full_box_sprite.texture = magazine_sprite
+	else:
+		full_box_sprite.texture = letter_sprite
 
 
 func fill_box():
