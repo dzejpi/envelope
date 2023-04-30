@@ -8,15 +8,16 @@
 script = ExtResource( 3 )
 
 [node name="TextBgSprite" type="Sprite" parent="."]
-position = Vector2( 64, 464 )
+position = Vector2( 64, 574 )
+scale = Vector2( 1.0651, 1 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="TextLabel" type="Label" parent="TextBgSprite"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 1136.0
-margin_bottom = 176.0
+[node name="TextLabel" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 590.0
+margin_right = 1265.0
+margin_bottom = 750.0
 custom_fonts/font = ExtResource( 1 )
-text = "Dialog text placeholder."
+text = "Dialog text placeholder. First line first line first line first line first line second line second line second line second line second line second line second line."
 autowrap = true

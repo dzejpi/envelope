@@ -1,7 +1,7 @@
 extends Node2D
 
 
-onready var text_label = $TextBgSprite/TextLabel
+onready var text_label = $TextLabel
 
 var dialog_text = ["Placeholder text."]
 var is_dialog_displayed = false
