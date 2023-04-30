@@ -263,7 +263,7 @@ transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0
 shape = SubResource( 5 )
 
 [node name="EnemyAnimatedSprite" type="Sprite3D" parent="Enemy"]
-offset = Vector2( 0, 64 )
+offset = Vector2( 0, 128 )
 billboard = 2
 texture = ExtResource( 6 )
 
