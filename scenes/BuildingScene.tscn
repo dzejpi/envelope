@@ -792,3 +792,6 @@ shape = SubResource( 2 )
 [node name="BuildingCollisionShape" type="CollisionShape" parent="Building"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.2014, 12.6584, -7.54991 )
 shape = SubResource( 1 )
+
+[node name="Hideout" type="Spatial" parent="." groups=["group_hideout"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8982, 25.5056, -6.20336 )

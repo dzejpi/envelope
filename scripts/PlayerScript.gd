@@ -234,6 +234,8 @@ func process_action_on_object(observed_object, raycast_object):
 		"Box":
 			if !raycast_object.is_filled:
 				raycast_object.fill_box()
+		"Enemy":
+			pass
 
 
 func receive_damage(damage_amount):
@@ -241,3 +243,5 @@ func receive_damage(damage_amount):
 	
 	if player_health <= 0:
 		is_game_over = true
+		
+	print("Player was attacked. Health left: " + str(player_health))
