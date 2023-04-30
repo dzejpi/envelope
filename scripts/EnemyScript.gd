@@ -151,7 +151,7 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 		"Player":
 			enemy_animated_sprite.set_animation("attacking")
 			if !player_attacked:
-				raycast_object.receive_damage(20)
+				raycast_object.receive_damage(30)
 				player_attacked = true
 				is_climbing = true
 				is_going_to_hideout = true

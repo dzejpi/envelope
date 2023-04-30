@@ -251,7 +251,8 @@ func receive_damage(damage_amount):
 	
 	if player_health <= 0:
 		is_game_over = true
-		
+	
+	update_damage_sprite()
 	print("Player was attacked. Health left: " + str(player_health))
 
 
