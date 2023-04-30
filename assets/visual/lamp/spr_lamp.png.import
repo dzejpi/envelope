@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.s3tc.stex"
-path.etc="res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.etc.stex"
+path.s3tc="res://.import/spr_lamp.png-f31b07603b0b9ec27777161ad372cf3e.s3tc.stex"
+path.etc="res://.import/spr_lamp.png-f31b07603b0b9ec27777161ad372cf3e.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://3d/projects/ase_ground_textures.png"
-dest_files=[ "res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.s3tc.stex", "res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.etc.stex" ]
+source_file="res://assets/visual/lamp/spr_lamp.png"
+dest_files=[ "res://.import/spr_lamp.png-f31b07603b0b9ec27777161ad372cf3e.s3tc.stex", "res://.import/spr_lamp.png-f31b07603b0b9ec27777161ad372cf3e.etc.stex" ]
 
 [params]
 

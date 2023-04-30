@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.s3tc.stex"
-path.etc="res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.etc.stex"
+path.s3tc="res://.import/spr_enemy_stalking.png-828bb79710ff46334b8af89a75cba921.s3tc.stex"
+path.etc="res://.import/spr_enemy_stalking.png-828bb79710ff46334b8af89a75cba921.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://3d/projects/ase_ground_textures.png"
-dest_files=[ "res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.s3tc.stex", "res://.import/ase_ground_textures.png-d12cdf37f71591a22faf24b4a9ca312a.etc.stex" ]
+source_file="res://assets/visual/enemy/spr_enemy_stalking.png"
+dest_files=[ "res://.import/spr_enemy_stalking.png-828bb79710ff46334b8af89a75cba921.s3tc.stex", "res://.import/spr_enemy_stalking.png-828bb79710ff46334b8af89a75cba921.etc.stex" ]
 
 [params]
 
