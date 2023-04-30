@@ -43,12 +43,18 @@ margin_top = 64.0
 margin_right = 1216.0
 margin_bottom = 528.0
 custom_fonts/font = ExtResource( 8 )
-text = "Credits text here."
+text = "Made by DzejPi for Ludum Dare #53.
+Thank you very much for playing!
+Don't forget to rate and comment. 
+I rate back everything, I promise.
+
+I want to thank my patient girlfriend for supporting me during development of this game. I truly gave it all and she knows that!
+
+Greeting to all of my friends from Natoco and Majn gangs.
+Special shoutout to: Face & Stadtpark for keeping me afloat."
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+autowrap = true
 
 [node name="Background" type="Node2D" parent="."]
 
