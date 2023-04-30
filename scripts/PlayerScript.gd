@@ -62,6 +62,8 @@ var is_paused = false
 
 var is_debug_triggered = false
 
+var is_able_to_pick_weapons = false
+
 # Name of the observed object for debugging purposes
 var observed_object = "" 
 
@@ -80,6 +82,7 @@ func _ready():
 	check_game_end()
 	check_game_won()
 	update_damage_sprite()
+	update_weapon_sprite()
 
 
 func _input(event):
@@ -265,8 +268,12 @@ func process_object_prompt(observed_object, raycast_object):
 			player_prompt_label.hide()
 			player_prompt_label.text = ""
 		"Weapon":
-			player_prompt_label.show()
-			player_prompt_label.text = "Pick up the weapon"
+			if is_able_to_pick_weapons:
+				player_prompt_label.show()
+				player_prompt_label.text = "Pick up the weapon"
+			else:
+				player_prompt_label.show()
+				player_prompt_label.text = "Just some junk"
 
 
 func process_action_on_object(observed_object, raycast_object):
@@ -282,9 +289,10 @@ func process_action_on_object(observed_object, raycast_object):
 				is_game_won = true
 			check_game_won()
 		"Weapon":
-			current_weapon = raycast_object.weapon_type
-			raycast_object.pick_up()
-			update_weapon_sprite()
+			if is_able_to_pick_weapons:
+				current_weapon = raycast_object.weapon_type
+				raycast_object.pick_up()
+				update_weapon_sprite()
 		"nothing":
 			animation_player.play("Weapon Swing")
 
