@@ -19,12 +19,14 @@ var gravity = 16
 var is_stalking_player = false
 var is_at_edge = false
 
-var is_attacking_player = false
+var is_attacking_player = true
 var player_attacked = false
 
-var is_going_to_hideout = true
+var is_going_to_hideout = false
 var hideout_found = false
 var is_in_hideout = false
+
+var damage_taken = false
 
 var is_climbing = false
 
@@ -83,7 +85,9 @@ func run_aray():
 
 
 func receive_damage(damage_amount):
-	enemy_health -= damage_amount
+	if !damage_taken:
+		damage_taken = true
+		enemy_health -= damage_amount
 	
 	if enemy_health <= 0:
 		is_alive = false

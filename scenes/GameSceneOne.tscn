@@ -111,6 +111,7 @@ shape = SubResource( 5 )
 
 [node name="EnemyAnimatedSprite" type="Sprite3D" parent="Enemy"]
 offset = Vector2( 0, 64 )
+billboard = 2
 texture = ExtResource( 6 )
 
 [node name="EnemyRayCast" type="RayCast" parent="Enemy"]

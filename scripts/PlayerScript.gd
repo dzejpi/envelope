@@ -235,7 +235,7 @@ func process_action_on_object(observed_object, raycast_object):
 			if !raycast_object.is_filled:
 				raycast_object.fill_box()
 		"Enemy":
-			pass
+			raycast_object.receive_damage(30)
 
 
 func receive_damage(damage_amount):
