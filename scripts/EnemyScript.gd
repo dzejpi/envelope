@@ -186,6 +186,13 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 				is_going_to_hideout = true
 				is_jumping = true
 				is_attacking_player = false
+		"Box":
+			# Just in case. When enemy hits box, it does not register building
+			if is_jumping:
+				is_jumping = false
+			if is_going_to_hideout:
+				is_climbing = true
+				enemy_animated_sprite.set_animation("climbing")
 		"Building":
 			if is_jumping:
 				is_jumping = false
