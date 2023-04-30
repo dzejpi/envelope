@@ -86,6 +86,7 @@ func process_current_tasks():
 				howling_timeout -= (1 * get_process_delta_time())
 			else:
 				has_creature_howled = true
+				global_var.play_sound("enemy_scream")
 				player.typewriter_dialog.start_dialog(["What the hell was that?!", "I need to finish my work as quickly as possible and get the hell out."], get_process_delta_time())
 
 	if !is_fourth_task_complete:
@@ -119,8 +120,8 @@ func process_current_tasks():
 	if !is_seventh_task_complete:
 		if is_sixth_task_complete:
 			if building_15.is_first_row_full or building_15.is_second_row_full or building_15.is_third_row_full or building_15.is_fourth_row_full:
-				player.typewriter_dialog.start_dialog(["This will do, I bet the management will understand.", "Now, I just need a building 52. And next time, I will prepare my mails in the order... if I ever get back here."], get_process_delta_time())
-				global_var.play_sound("sfx_enemy_scream")
+				player.typewriter_dialog.start_dialog(["This will do, I bet the management will understand.", "Now, I just need a building 53. And next time, I will prepare my mails in the order... if I ever get back here."], get_process_delta_time())
+				global_var.play_sound("enemy_scream")
 				attack_player_continuously = true
 				player.update_current_task("Defend yourself.")
 				is_seventh_task_complete = true

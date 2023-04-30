@@ -295,9 +295,12 @@ func process_action_on_object(observed_object, raycast_object):
 				raycast_object.fill_box()
 				global_var.play_sound("envelope_fill")
 		"Enemy":
+			#if current_weapon > 0:
+				
 			raycast_object.receive_damage(30)
 			animation_player.play("Weapon Swing")
-			global_var.play_sound("weapon_swing")
+			global_var.play_sound("enemy_scream")
+			
 			var monster_health = raycast_object.enemy_health
 			if monster_health <= 0:
 				is_game_won = true
