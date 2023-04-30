@@ -147,6 +147,7 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 			if !player_attacked:
 				raycast_object.receive_damage(20)
 				player_attacked = true
+				is_going_to_hideout = true
 				is_attacking_player = false
 		"Building":
 			is_climbing = true
