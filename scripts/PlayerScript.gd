@@ -153,7 +153,8 @@ func _physics_process(delta):
 	
 	if !is_game_over && !is_paused:
 		if direction != Vector3():
-			animation_player.play("Head Bob")
+			if !(animation_player.current_animation == "Weapon Swing"):
+				animation_player.play("Head Bob")
 	
 
 func check_pause_update():
@@ -256,11 +257,13 @@ func process_action_on_object(observed_object, raycast_object):
 				raycast_object.fill_box()
 		"Enemy":
 			raycast_object.receive_damage(30)
+			animation_player.play("Weapon Swing")
 		"Weapon":
 			current_weapon = raycast_object.weapon_type
 			raycast_object.pick_up()
 			update_weapon_sprite()
-
+		"nothing":
+			animation_player.play("Weapon Swing")
 
 func receive_damage(damage_amount):
 	player_health -= damage_amount
