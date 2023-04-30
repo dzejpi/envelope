@@ -23,6 +23,7 @@ global_var="*res://scenes/GlobalScene.tscn"
 
 window/size/width=1366
 window/size/height=768
+window/stretch/mode="viewport"
 
 [input]
 
