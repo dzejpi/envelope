@@ -18,5 +18,3 @@ func get_all_hideouts():
 		enemy.hideouts.append(node)
 	
 	enemy.find_closest_hideout(enemy.global_transform.origin)
-
-
