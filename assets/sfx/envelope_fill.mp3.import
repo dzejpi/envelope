@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/envelope_fill.mp3-e1259f54397da8355fc898adf485b520.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/envelope_fill.mp3"
+dest_files=[ "res://.import/envelope_fill.mp3-e1259f54397da8355fc898adf485b520.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

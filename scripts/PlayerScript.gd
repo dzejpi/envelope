@@ -31,6 +31,9 @@ var baseball_bat = preload("res://assets/visual/ui/weapons/ase_weapons_baseball_
 var crowbar = preload("res://assets/visual/ui/weapons/ase_weapons_crowbar.png") 
 var wooden_plank = preload("res://assets/visual/ui/weapons/ase_weapons_wooden_plank.png")
 
+onready var player_audio_stream_player_3d = $PlayerAudioStreamPlayer3D
+var walking_sound = preload("res://assets/sfx/player_walk.mp3")
+
 var is_game_over = false
 var is_game_won = false
 
@@ -172,11 +175,11 @@ func _physics_process(delta):
 			if !(animation_player.current_animation == "Weapon Swing"):
 				if !is_walking_being_played:
 					is_walking_being_played = true
-					global_var.play_sound("player_walk")
+					player_audio_stream_player_3d.play()
 				animation_player.play("Head Bob")
 		else:
 			is_walking_being_played = false
-			global_var.stop_sound("player_walk")
+			player_audio_stream_player_3d.play()
 	
 
 func check_pause_update():
@@ -290,6 +293,7 @@ func process_action_on_object(observed_object, raycast_object):
 		"Box":
 			if !raycast_object.is_filled:
 				raycast_object.fill_box()
+				global_var.play_sound("envelope_fill")
 		"Enemy":
 			raycast_object.receive_damage(30)
 			animation_player.play("Weapon Swing")

@@ -4,6 +4,9 @@ extends KinematicBody
 onready var player = $"../Player"
 onready var enemy_ray_cast = $EnemyRayCast
 onready var enemy_animated_sprite = $EnemyAnimatedSprite
+onready var enemy_audio_stream_player_3d = $EnemyAudioStreamPlayer3D
+
+var enemy_breathing = preload("res://assets/sfx/enemy_breathing.mp3")
 
 var hideouts = []
 var closest_hideout = null
