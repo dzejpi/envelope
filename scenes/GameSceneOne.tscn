@@ -2234,22 +2234,62 @@ building_fourth_number = "323"
 
 [node name="Weapons" type="Node" parent="."]
 
-[node name="WeaponItem" type="Node" parent="Weapons"]
+[node name="BaseballBatWeaponItem" type="Node" parent="Weapons"]
 
-[node name="Weapon" parent="Weapons/WeaponItem" instance=ExtResource( 19 )]
-transform = Transform( 0, -1, 1.73205, 0, 1.73205, 1, -2, 0, 0, -393.483, 0, 111 )
+[node name="Weapon" parent="Weapons/BaseballBatWeaponItem" instance=ExtResource( 19 )]
+transform = Transform( -1.41421, 0.707107, -1.22474, 0, 1.73205, 1, 1.41421, 0.707107, -1.22474, -295.732, 0, 41.888 )
 
-[node name="WeaponItem2" type="Node" parent="Weapons"]
+[node name="CrowbarWeaponItem" type="Node" parent="Weapons"]
 
-[node name="Weapon" parent="Weapons/WeaponItem2" instance=ExtResource( 19 )]
-transform = Transform( 0, -1, 1.73205, 0, 1.73205, 1, -2, 0, 0, -393.483, 0, 109 )
+[node name="Weapon" parent="Weapons/CrowbarWeaponItem" instance=ExtResource( 19 )]
+transform = Transform( 1.41421, 0.707107, -1.22474, 0, 1.73205, 1, 1.41421, -0.707107, 1.22474, -308.717, 0, 100.515 )
 weapon_type = 2
 
-[node name="WeaponItem3" type="Node" parent="Weapons"]
+[node name="WoodenPlankWeaponItem" type="Node" parent="Weapons"]
 
-[node name="Weapon" parent="Weapons/WeaponItem3" instance=ExtResource( 19 )]
+[node name="Weapon" parent="Weapons/WoodenPlankWeaponItem" instance=ExtResource( 19 )]
 transform = Transform( 0, -1, 1.73205, 0, 1.73205, 1, -2, 0, 0, -393.483, 0, 107 )
 weapon_type = 3
+
+[node name="CrowbarWeaponItem2" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/CrowbarWeaponItem2" instance=ExtResource( 19 )]
+transform = Transform( -1.80237, -0.433439, 0.750738, 0, 1.73205, 1, -0.866878, 0.901183, -1.56089, -187.367, 0, 7.92121 )
+weapon_type = 2
+
+[node name="WoodenPlankWeaponItem2" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/WoodenPlankWeaponItem2" instance=ExtResource( 19 )]
+transform = Transform( -1.97067, -0.220267, -0.260679, -0.274717, 0.117432, 1.97756, -0.202489, 1.98436, -0.145965, -403.496, 0.0443878, 153 )
+weapon_type = 3
+
+[node name="WoodenPlankWeaponItem3" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/WoodenPlankWeaponItem3" instance=ExtResource( 19 )]
+transform = Transform( -1.97067, -0.220267, -0.260679, -0.274717, 0.117432, 1.97756, -0.202489, 1.98436, -0.145965, -340.496, 0.0443878, 172.446 )
+weapon_type = 3
+
+[node name="WoodenPlankWeaponItem4" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/WoodenPlankWeaponItem4" instance=ExtResource( 19 )]
+transform = Transform( -1.97067, -0.220267, -0.260679, -0.274717, 0.117432, 1.97756, -0.202489, 1.98436, -0.145965, -231.134, 0.0443878, 172.446 )
+weapon_type = 3
+
+[node name="WoodenPlankWeaponItem5" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/WoodenPlankWeaponItem5" instance=ExtResource( 19 )]
+transform = Transform( -1.28024, 0.543778, -1.43711, -0.318464, 1.73605, 0.940594, 1.50318, 0.830928, -1.02469, -183.522, 0.0443878, 193.446 )
+weapon_type = 3
+
+[node name="BaseballBatWeaponItem2" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/BaseballBatWeaponItem2" instance=ExtResource( 19 )]
+transform = Transform( -1.73205, -0.5, 0.866025, 0, 1.73205, 1, -1, 0.866025, -1.5, -90.4649, 0, 8.39769 )
+
+[node name="BaseballBatWeaponItem3" type="Node" parent="Weapons"]
+
+[node name="Weapon" parent="Weapons/BaseballBatWeaponItem3" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 2, 5.96046e-07, -5.16191e-08, -4.17233e-07, 2, 2, -2.98023e-08, 1.19209e-07, -295.732, 0.114904, -48.112 )
 
 [node name="WalkableGround" type="Node" parent="."]
 
