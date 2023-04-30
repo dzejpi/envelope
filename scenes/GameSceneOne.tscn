@@ -270,10 +270,10 @@ texture = ExtResource( 6 )
 [node name="EnemyRayCast" type="RayCast" parent="Enemy"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26966, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, -2 )
+cast_to = Vector3( 0, 0, -1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="Enemy/EnemyRayCast"]
-transform = Transform( 1, -1.74846e-07, 1.74846e-07, 1.74846e-07, -4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, 0, 0, -1.91027 )
+transform = Transform( 1, -1.74846e-07, 1.74846e-07, 1.74846e-07, -4.37114e-08, -1, 1.74846e-07, 1, -4.37114e-08, 0, 0, -0.917755 )
 texture = ExtResource( 9 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
