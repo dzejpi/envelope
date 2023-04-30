@@ -20,10 +20,10 @@ var gravity = 16
 var is_stalking_player = false
 var is_at_edge = false
 
-var is_attacking_player = true
+var is_attacking_player = false
 var player_attacked = false
 
-var is_going_to_hideout = false
+var is_going_to_hideout = true
 var hideout_found = false
 var is_in_hideout = false
 

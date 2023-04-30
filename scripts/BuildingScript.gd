@@ -24,6 +24,8 @@ var is_second_row_full = false
 var is_third_row_full = false
 var is_fourth_row_full = false
 
+var is_whole_building_complete = false
+
 
 func _ready():
 	building_number_label.text = building_number
@@ -45,3 +47,6 @@ func update_filled_boxes():
 		
 	if filled_boxes_fourth_row == 10:
 		is_fourth_row_full = true
+
+	if is_first_row_full && is_second_row_full && is_third_row_full && is_fourth_row_full:
+		is_whole_building_complete = true

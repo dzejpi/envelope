@@ -55,7 +55,7 @@ var movement = Vector3()
 var gravity_vector = Vector3()
 
 var player_health = 100
-var current_player_task = "Deliver mail to the building 810."
+var current_player_task = "Task placeholder."
 
 var is_on_ground = true
 var is_paused = false
@@ -102,8 +102,8 @@ func _input(event):
 			process_action_on_object(observed_object, ray.get_collider())
 	
 	# For debugging purposes
-	if Input.is_action_just_pressed("debug_trigger"):
-		is_debug_triggered = true
+	#if Input.is_action_just_pressed("debug_trigger"):
+	#	is_debug_triggered = true
 
 
 func _process(_delta):
