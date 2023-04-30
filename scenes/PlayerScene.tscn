@@ -7,7 +7,7 @@
 [ext_resource path="res://fonts/font_48.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/visual/ui/cross/spr_ui_cross.png" type="Texture" id=6]
 [ext_resource path="res://assets/visual/ui/health/ase_health_indicator_severe.png" type="Texture" id=7]
-[ext_resource path="res://assets/visual/ui/weapons/ase_weapons_crowbar.png" type="Texture" id=8]
+[ext_resource path="res://assets/visual/ui/weapons/ase_weapons_no_weapon.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Head Bob"
