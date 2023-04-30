@@ -808,7 +808,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.2014, 12.6584, -7.54991 )
 shape = SubResource( 1 )
 
 [node name="Hideout" type="Spatial" parent="." groups=["group_hideout"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 25.5, -7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 25.5, -7 )
 
 [node name="HideoutPlace" type="StaticBody" parent="Hideout"]
 
@@ -845,3 +845,19 @@ font = SubResource( 6 )
 transform = Transform( -8.74228e-08, 0, 1, 0, 1, 0, -1, 0, -8.74228e-08, 100.132, 20.8112, -7.45605 )
 text = "10"
 font = SubResource( 6 )
+
+[node name="Hideout2" type="Spatial" parent="." groups=["group_hideout"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 25.5, -7 )
+
+[node name="HideoutPlace" type="StaticBody" parent="Hideout2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Hideout2/HideoutPlace"]
+shape = SubResource( 5 )
+
+[node name="Hideout3" type="Spatial" parent="." groups=["group_hideout"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 25.5, -7 )
+
+[node name="HideoutPlace" type="StaticBody" parent="Hideout3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Hideout3/HideoutPlace"]
+shape = SubResource( 5 )
