@@ -39,7 +39,8 @@ margin_right = 1366.0
 margin_bottom = 372.0
 custom_fonts/font = ExtResource( 9 )
 text = "Try to hit the monster when it gets closer. 
-Your weapons are longer than its claws!"
+Your weapons are longer than its claws!
+Always look for extra weapon around."
 align = 1
 
 [node name="Buttons" type="Node2D" parent="."]
