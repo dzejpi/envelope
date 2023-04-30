@@ -41,11 +41,13 @@ var observed_object = ""
 
 
 func _ready():
-	pass
+	print("Initial enemy Y position is:" + str(transform.origin.y))
 
 
 func _process(delta):
 	if is_attacking_player:
+		is_at_edge = false
+		is_in_hideout = false
 		attack_player(delta)
 	
 	if is_going_to_hideout:
@@ -103,11 +105,11 @@ func receive_damage(damage_amount):
 	if enemy_health <= 0:
 		is_alive = false
 		
+	is_attacking_player = false
 	is_going_to_hideout = true
 	is_jumping = true
 	find_closest_hideout(self.global_transform.origin)
 	player_attacked = true
-	is_attacking_player = false
 		
 	print("Enemy was attacked. Health left: " + str(enemy_health))
 
@@ -148,6 +150,11 @@ func move_forward(delta):
 			is_climbing = false
 			is_jumping = false
 			enemy_animated_sprite.set_animation("running_towards")
+			
+	if is_attacking_player && !is_going_to_hideout:
+		if transform.origin.y > ground_y:
+			var new_position = transform.origin + transform.basis.y * (speed*2) * delta * (-1)
+			transform.origin = new_position
 
 
 func find_closest_hideout(current_enemy_position):
@@ -184,5 +191,7 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 		"HideoutPlace":
 			is_going_to_hideout = false
 			is_in_hideout = true
+			player_attacked = false
 		"BuildingEdge":
-			is_at_edge = true
+			if !is_attacking_player:
+				is_at_edge = true

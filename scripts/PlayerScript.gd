@@ -60,6 +60,8 @@ var current_player_task = "Deliver mail to the building 810."
 var is_on_ground = true
 var is_paused = false
 
+var is_debug_triggered = false
+
 # Name of the observed object for debugging purposes
 var observed_object = "" 
 
@@ -98,6 +100,10 @@ func _input(event):
 			
 	if Input.is_action_just_pressed("game_click"):
 			process_action_on_object(observed_object, ray.get_collider())
+	
+	# For debugging purposes
+	if Input.is_action_just_pressed("debug_trigger"):
+		is_debug_triggered = true
 
 
 func _process(_delta):
