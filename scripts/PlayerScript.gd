@@ -54,7 +54,7 @@ var velocity = Vector3()
 var movement = Vector3()
 var gravity_vector = Vector3()
 
-var player_health = 100
+var player_health = 1
 var current_player_task = "Deliver mail to the building 810."
 
 var is_on_ground = true
@@ -215,6 +215,10 @@ func check_game_end():
 func check_game_won():
 	if is_game_won:
 		game_won_scene.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pause_scene.is_game_paused = false
+		pause_scene.hide()
+		player_ui.hide()
 
 
 func increase_fov():
