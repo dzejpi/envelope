@@ -54,7 +54,7 @@ var velocity = Vector3()
 var movement = Vector3()
 var gravity_vector = Vector3()
 
-var player_health = 1
+var player_health = 100
 var current_player_task = "Deliver mail to the building 810."
 
 var is_on_ground = true
