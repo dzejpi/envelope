@@ -13,7 +13,7 @@ var ground_y = 0
 
 var enemy_health = 100
 
-var speed = 10
+var speed = 8
 var jump = 6
 var gravity = 16
 
@@ -30,6 +30,7 @@ var is_in_hideout = false
 var damage_taken = false
 
 var is_climbing = false
+var is_jumping = false
 
 var is_on_ground = true
 
@@ -98,6 +99,7 @@ func receive_damage(damage_amount):
 		is_alive = false
 		
 	is_going_to_hideout = true
+	find_closest_hideout(self.global_transform.origin)
 	player_attacked = true
 	is_attacking_player = false
 		
@@ -126,10 +128,11 @@ func move_forward(delta):
 
 	if is_climbing:
 		if transform.origin.y < roof_y:
-			var new_position = transform.origin + transform.basis.y * speed * delta * (1)
+			var new_position = transform.origin + transform.basis.y * (speed/2) * delta * (1)
 			transform.origin = new_position
 		else:
 			is_climbing = false
+			enemy_animated_sprite.set_animation("running_towards")
 
 
 func find_closest_hideout(current_enemy_position):
@@ -153,12 +156,13 @@ func process_enemy_action_on_object(observed_object, raycast_object):
 			if !player_attacked:
 				raycast_object.receive_damage(30)
 				player_attacked = true
-				is_climbing = true
+				find_closest_hideout(self.global_transform.origin)
 				is_going_to_hideout = true
 				is_attacking_player = false
 		"Building":
-			is_climbing = true
-			enemy_animated_sprite.set_animation("climbing")
+			if is_going_to_hideout:
+				is_climbing = true
+				enemy_animated_sprite.set_animation("climbing")
 		"HideoutPlace":
 			is_going_to_hideout = false
 			is_in_hideout = true
