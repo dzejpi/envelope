@@ -55,6 +55,7 @@ func _process(delta):
 		move_forward(delta)
 		
 	if is_in_hideout:
+		damage_taken = false
 		stalk_player(delta)
 	
 	if enemy_ray_cast.is_colliding():
