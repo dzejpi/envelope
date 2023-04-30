@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PauseScene.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/visual/ui/cross/spr_ui_cross.png" type="Texture" id=6]
 [ext_resource path="res://assets/visual/ui/health/ase_health_indicator_severe.png" type="Texture" id=7]
 [ext_resource path="res://assets/visual/ui/weapons/ase_weapons_baseball_bat.png" type="Texture" id=8]
+[ext_resource path="res://scenes/GameWonScene.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Head Bob"
@@ -179,6 +180,11 @@ visible = false
 [node name="GameEnd" type="Node" parent="UI"]
 
 [node name="GameOverScene" parent="UI/GameEnd" instance=ExtResource( 3 )]
+visible = false
+
+[node name="GameWon" type="Node" parent="UI"]
+
+[node name="GameWonScene" parent="UI/GameWon" instance=ExtResource( 9 )]
 visible = false
 
 [node name="PlayerUI" type="Node2D" parent="UI"]

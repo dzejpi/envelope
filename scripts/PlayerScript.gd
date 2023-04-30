@@ -6,6 +6,8 @@ onready var ray = $PlayerHead/RayCast
 
 onready var pause_scene = $UI/Pause/PauseScene
 onready var game_over_scene = $UI/GameEnd/GameOverScene
+onready var game_won_scene = $UI/GameWon/GameWonScene
+
 onready var animation_player = $PlayerHead/PlayerCamera/AnimationPlayer
 onready var player_camera = $PlayerHead/PlayerCamera
 
@@ -30,6 +32,7 @@ var crowbar = preload("res://assets/visual/ui/weapons/ase_weapons_crowbar.png")
 var wooden_plank = preload("res://assets/visual/ui/weapons/ase_weapons_wooden_plank.png")
 
 var is_game_over = false
+var is_game_won = false
 
 var speed = 6
 var jump = 6
@@ -73,6 +76,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	update_current_task(current_player_task)
 	check_game_end()
+	check_game_won()
 	update_damage_sprite()
 
 
@@ -208,6 +212,11 @@ func check_game_end():
 		game_over_scene.hide()
 
 
+func check_game_won():
+	if is_game_won:
+		game_won_scene.show()
+
+
 func increase_fov():
 	current_fov = player_camera.fov
 	
@@ -258,6 +267,10 @@ func process_action_on_object(observed_object, raycast_object):
 		"Enemy":
 			raycast_object.receive_damage(30)
 			animation_player.play("Weapon Swing")
+			var monster_health = raycast_object.enemy_health
+			if monster_health <= 0:
+				is_game_won = true
+			check_game_won()
 		"Weapon":
 			current_weapon = raycast_object.weapon_type
 			raycast_object.pick_up()
