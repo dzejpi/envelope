@@ -5,8 +5,8 @@ onready var dev_logo_sprite = $DevLogoSprite
 onready var jam_logo_sprite = $JamLogoSprite
 onready var transition_overlay_sprite = $TransitionOverlay/TransitionSprite
 
-var screen_width = OS.window_size.x
-var screen_height = OS.window_size.y
+var screen_width = 1366
+var screen_height = 768
 
 # Logos displayed
 var logos_displayed = 0
@@ -46,16 +46,15 @@ func _ready():
 func _process(delta):
 	
 	# Make sure that the logo positions rerender in case user changes the window size on splash
-	screen_width = OS.window_size.x
-	screen_height = OS.window_size.y
+	screen_width = 1366
+	screen_height = 768
 	
 	dev_logo_sprite.position.x = (screen_width / 2)
 	dev_logo_sprite.position.y = (screen_height / 2)
 	
 	jam_logo_sprite.position.x = (screen_width / 2)
 	jam_logo_sprite.position.y = (screen_height / 2)
-	
-	
+		
 	if startup_delay:
 		if startup_delay_timer <= (logo_show_off_speed / 1.75):
 				startup_delay_timer += (logo_show_off_speed * delta)
