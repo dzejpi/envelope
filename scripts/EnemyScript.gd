@@ -4,7 +4,7 @@ extends KinematicBody
 onready var player = $"../Player"
 onready var enemy_ray_cast = $EnemyRayCast
 
-var health = 100
+var enemy_health = 100
 
 var speed = 6
 var jump = 6
@@ -60,13 +60,13 @@ func run_aray():
 
 
 func receive_damage(damage_amount):
-	health -= damage_amount
+	enemy_health -= damage_amount
 	
-	if health <= 0:
+	if enemy_health <= 0:
 		is_alive = false
 
 
-# Necessary to always look towards the player, useful for attacking
+# Rotate towards the player, useful for attacking, since it moves raycast too
 func look_at_player():
 	var target_pos = player.global_transform.origin
 	look_at(target_pos, Vector3(0, 1, 0))
