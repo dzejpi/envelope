@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/PlayerScript.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PauseScene.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/TypewriterDialogScene.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/font_48.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/visual/ui/cross/spr_ui_cross.png" type="Texture" id=6]
+[ext_resource path="res://assets/visual/ui/health/ase_health_indicator_severe.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Head Bob"
@@ -112,6 +113,21 @@ visible = false
 visible = false
 
 [node name="PlayerUI" type="Node2D" parent="UI"]
+
+[node name="HealthIndicator" type="Node2D" parent="UI/PlayerUI"]
+
+[node name="HealthIndicatorSprite" type="Sprite" parent="UI/PlayerUI/HealthIndicator"]
+position = Vector2( 170, 368 )
+texture = ExtResource( 7 )
+centered = false
+offset = Vector2( -170, -368 )
+
+[node name="HealthIndicatorSpriteTwo" type="Sprite" parent="UI/PlayerUI/HealthIndicator"]
+position = Vector2( 1196, 400 )
+rotation = 3.14159
+texture = ExtResource( 7 )
+centered = false
+offset = Vector2( -170, -368 )
 
 [node name="TypewriterDialog" parent="UI/PlayerUI" instance=ExtResource( 4 )]
 

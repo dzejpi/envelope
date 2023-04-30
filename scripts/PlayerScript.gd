@@ -14,6 +14,13 @@ onready var player_ui = $UI/PlayerUI
 onready var typewriter_dialog = $UI/PlayerUI/TypewriterDialog
 onready var player_task_label = $UI/PlayerUI/PlayerTaskLabel
 onready var player_prompt_label = $UI/PlayerUI/PlayerPromptLabel
+onready var health_indicator_sprite = $UI/PlayerUI/HealthIndicator/HealthIndicatorSprite
+onready var health_indicator_sprite_two = $UI/PlayerUI/HealthIndicator/HealthIndicatorSpriteTwo
+
+var indicator_healthy = preload("res://assets/visual/ui/health/ase_health_indicator_healthy.png") 
+var indicator_low = preload("res://assets/visual/ui/health/ase_health_indicator_low.png") 
+var indicator_medium = preload("res://assets/visual/ui/health/ase_health_indicator_medium.png") 
+var indicator_severe = preload("res://assets/visual/ui/health/ase_health_indicator_severe.png")
 
 var is_game_over = false
 
@@ -57,6 +64,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	update_current_task(current_player_task)
 	check_game_end()
+	update_damage_sprite()
 
 
 func _input(event):
@@ -245,3 +253,18 @@ func receive_damage(damage_amount):
 		is_game_over = true
 		
 	print("Player was attacked. Health left: " + str(player_health))
+
+
+func update_damage_sprite():
+	if player_health > 80:
+		health_indicator_sprite.texture = indicator_healthy
+		health_indicator_sprite_two.texture = indicator_healthy
+	elif player_health > 60:
+		health_indicator_sprite.texture = indicator_low
+		health_indicator_sprite_two.texture = indicator_low
+	elif player_health > 40:
+		health_indicator_sprite.texture = indicator_medium
+		health_indicator_sprite_two.texture = indicator_medium
+	else:
+		health_indicator_sprite.texture = indicator_severe
+		health_indicator_sprite_two.texture = indicator_severe
