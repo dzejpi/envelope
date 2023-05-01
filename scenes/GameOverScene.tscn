@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/MainMenuButton.gd" type="Script" id=1]
 [ext_resource path="res://assets/visual/ui/main_menu/menu_btn_focused.png" type="Texture" id=2]
@@ -11,12 +11,14 @@
 [ext_resource path="res://fonts/font_48.tres" type="DynamicFont" id=9]
 [ext_resource path="res://assets/fonts/kenney_fontpackage/fonts/kenney_pixel.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://assets/visual/ui/dialogue/dialogue_character_bg.png" type="Texture" id=11]
+[ext_resource path="res://scripts/GameOverScene.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
 font_data = ExtResource( 10 )
 
 [node name="GameOverScene" type="Node2D"]
+script = ExtResource( 12 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 42, 42 )

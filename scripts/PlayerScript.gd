@@ -231,6 +231,7 @@ func check_game_end():
 	
 	if is_game_over:
 		game_over_scene.show()
+		game_over_scene.is_countdown_started = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_scene.is_game_paused = false
 		pause_scene.hide()
@@ -242,6 +243,7 @@ func check_game_end():
 func check_game_won():
 	if is_game_won:
 		game_won_scene.show()
+		game_won_scene.is_countdown_started = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_scene.is_game_paused = false
 		pause_scene.hide()
